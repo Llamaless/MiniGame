@@ -54,7 +54,6 @@ public class Character {
     public double getHealth(){
         return health; 
     }
-    
     public void setHealth(double newHealth){
         health = newHealth;
     }
@@ -63,14 +62,14 @@ public class Character {
         System.out.println("You used " + getPrimaryName());
     }
     public void enemyPrimaryDamage(){
-        System.out.println("The enemy took" + getPrimaryDamage());
+        System.out.println("The enemy took " + getPrimaryDamage());
     }
     
     public void secondaryAttack(){
         System.out.println("You used " + getSecondaryName());
     }
     public void enemySecondaryDamage(){
-        System.out.println("The enemy took" + getSecondaryDamage());
+        System.out.println("The enemy took " + getSecondaryDamage());
     }
     
 }

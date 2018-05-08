@@ -15,6 +15,7 @@ public class Enemy {
     private double directionX;
     private double directionY;
     private double damage;
+    private double health; 
     
     public String getName(){
         return name;
@@ -32,6 +33,8 @@ public class Enemy {
     public void setDamage(double newDamage){
         damage = newDamage; 
     }
+    
+    
     
     public void followHero(){
         System.out.println(getName() + " is following you");

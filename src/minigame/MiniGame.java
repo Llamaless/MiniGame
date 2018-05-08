@@ -44,11 +44,11 @@ public class MiniGame {
         
         double health = recieveHealth(character); 
         while(health > 0){
-            double enemyDamage = enemyAttacks(enemy);
+            double enemyDamage = enemyAttacks(enemy); 
+            double charDamage = characterAttacks(character);
             health = health - enemyDamage; 
-            System.out.print("Your health is now " + health); 
-            double charDamage = characterAttacks(character); 
-        } 
+            System.out.print("Your health is now " + health + "\n");
+        }System.out.print("You are now Dead.");
         //Enemy creation
         
     }
