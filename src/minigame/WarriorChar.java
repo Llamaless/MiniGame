@@ -15,6 +15,7 @@ public class WarriorChar extends Character{
       setPrimaryDamage(10.0);
       setSecondaryName("Thrust");
       setSecondaryDamage(5.0); 
+      setHealth(30.0);
     }
    
 }

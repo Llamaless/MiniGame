@@ -41,15 +41,50 @@ public class MiniGame {
                 }
             }else System.out.print("Please Enter a class next time"); 
         }
-       
         
+        double health = recieveHealth(character); 
+        while(health > 0){
+            double enemyDamage = enemyAttacks(enemy);
+            health = health - enemyDamage; 
+            System.out.print("Your health is now " + health); 
+            double charDamage = characterAttacks(character); 
+        } 
         //Enemy creation
         
     }
     public static void doStuffEnemy(Enemy anEnemy){
         anEnemy.displayEnemy();
         anEnemy.followHero();
+    }
+    
+    public static double enemyAttacks(Enemy anEnemy){
         anEnemy.enemyAttacks();
+        double attackDamage = anEnemy.getDamage(); 
+        return attackDamage;
+    }
+    
+    public static double characterAttacks(Character character){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Choose Attack (1 / 2) \n");
+        int attackType = input.nextInt();
+        switch(attackType){
+            case 1: 
+                character.primaryAttack();
+                character.enemyPrimaryDamage();
+                double damage = character.getPrimaryDamage();
+                return damage;
+            case 2:
+               character.secondaryAttack();
+               character.enemySecondaryDamage();
+               double damage2 = character.getSecondaryDamage();
+               return damage2;
+        }
+        return 0.0;  
+    }
+    
+    public static double recieveHealth(Character character){
+        double charHealth = character.getHealth(); 
+        return charHealth; 
     }
     
 }

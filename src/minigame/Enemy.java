@@ -24,6 +24,9 @@ public class Enemy {
     }
     
     public double getDamage(){
+        /*
+        The damage and enemy can do
+        */
         return damage;
     }
     public void setDamage(double newDamage){

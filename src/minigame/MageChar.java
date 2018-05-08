@@ -15,5 +15,6 @@ public class MageChar extends Character{
       setPrimaryDamage(13.0);
       setSecondaryName("Fireball");
       setSecondaryDamage(3.0);
+      setHealth(15.0); 
     }
 }

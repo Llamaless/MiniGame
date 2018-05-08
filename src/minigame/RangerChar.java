@@ -15,5 +15,6 @@ public class RangerChar extends Character{
       setPrimaryDamage(8);
       setSecondaryName("Slash");
       setSecondaryDamage(4.0);
+      setHealth(22.0);
     }
 }

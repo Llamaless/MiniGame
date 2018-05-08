@@ -41,10 +41,22 @@ public class Character {
     }
     
     public double getSecondaryDamage(){
+        /*
+        Gets the secondary damage
+        */
         return secondaryDamage;
     }
     public void setSecondaryDamage(double newDamage2){
+        
         secondaryDamage = newDamage2; 
+    }
+    
+    public double getHealth(){
+        return health; 
+    }
+    
+    public void setHealth(double newHealth){
+        health = newHealth;
     }
     
     public void primaryAttack(){
@@ -60,4 +72,5 @@ public class Character {
     public void enemySecondaryDamage(){
         System.out.println("The enemy took" + getSecondaryDamage());
     }
+    
 }

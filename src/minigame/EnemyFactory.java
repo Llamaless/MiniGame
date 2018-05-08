@@ -11,7 +11,7 @@ package minigame;
  */
 public class EnemyFactory {
     public Enemy makeEnemy(int newEnemyType){
-        Enemy newEnemy = null;
+       Enemy newEnemy = null;
        switch(newEnemyType){
            case 1:
                return new SlimeEnemy();
