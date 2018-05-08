@@ -4,10 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/EnemyFactory.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/Character.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/WarriorChar.java</file>
             <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/MiniGame.java</file>
             <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/SlimeEnemy.java</file>
             <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/Enemy.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/CharacterFactory.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/DragonEnemy.java</file>
             <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/SkeletonEnemy.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/RangerChar.java</file>
+            <file>file:/C:/Users/Kobej/OneDrive/Documents/NetBeansProjects/MiniGame/src/minigame/MageChar.java</file>
         </group>
     </open-files>
 </project-private>

@@ -31,7 +31,7 @@ public class MiniGame {
                 enemy = createEnemy(enemy, enemyFactory); 
             }else System.out.print("Please Enter a class next time"); 
         }
-        fightSetUp(character, enemy); 
+        fightSetUpStart(character, enemy); 
         
         //Enemy creation
         
@@ -39,7 +39,7 @@ public class MiniGame {
     
     public static Enemy createEnemy(Enemy enemy, EnemyFactory enemyFactory){
         Random rand = new Random();
-        int randomNum = rand.nextInt((2 - 1) + 1) + 1;
+        int randomNum = rand.nextInt((3 - 1) + 1) + 1;
         
         if(randomNum != 0){
             //String typeOfEnemy = input.nextLine();
@@ -75,12 +75,17 @@ public class MiniGame {
         return charHealth; 
     }
     
-    public static void fightSetUp(Character character, Enemy enemy){
+    public static void fightSetUpStart(Character character, Enemy enemy){
         double characterHealth = recieveHealth(character);
         double enemyHealth = enemyHealth(enemy);
         fight(characterHealth, enemyHealth, character, enemy); 
     } 
-    
+    public static void fightSetUpNext(Character character, double characterHealth, Enemy enemy){
+        System.out.print("Your health is " + characterHealth + "\n");
+        double cHealth = characterHealth;
+        double enemyHealth = enemyHealth(enemy);
+        fight(characterHealth, enemyHealth, character, enemy); 
+    }
     public static double characterAttacks(Character character){
         Scanner input = new Scanner(System.in);
         System.out.print("Choose Attack (1 / 2) \n");
@@ -100,7 +105,7 @@ public class MiniGame {
     
     public static int healthCheck(double cHealth, double eHealth){
         if(cHealth <= 0.0){
-           System.out.print("You are dead");
+           System.out.print("You are dead \n");
            System.out.print("Thank you for playing");
            System.exit(0);
         }else{
@@ -116,7 +121,7 @@ public class MiniGame {
         return 0;
     }
     
-    public static void fightAgain(Character character){
+    public static void fightAgain(Character character, double cHealth){
         EnemyFactory enemyFactory = new EnemyFactory();
         Enemy enemy = null; 
         Scanner input = new Scanner(System.in);
@@ -124,7 +129,7 @@ public class MiniGame {
         String choice = input.nextLine();
         if(choice.equals("Y")){
             enemy = createEnemy(enemy, enemyFactory);
-            fightSetUp(character, enemy);
+            fightSetUpNext(character, cHealth, enemy);
         }
         if(choice.equals("N")){
             System.out.print("Thank you for playing");
@@ -143,6 +148,6 @@ public class MiniGame {
             eHealth = eHealth - charDamage; 
             x = healthCheck(cHealth, eHealth); 
         }
-        fightAgain(character); 
+        fightAgain(character, cHealth); 
     }
 }

@@ -17,6 +17,8 @@ public class EnemyFactory {
                return new SlimeEnemy();
            case 2:
                return new SkeletonEnemy();
+           case 3:
+               return new DragonEnemy();
            default:
                return null; 
        }

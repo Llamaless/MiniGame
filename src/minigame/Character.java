@@ -62,7 +62,7 @@ public class Character {
         System.out.println("You used " + getPrimaryName() + " The enemy took " + getPrimaryDamage() + " damage");
     } 
     public void secondaryAttack(){
-        System.out.println("You used " + getSecondaryName() + "The enemy took " + getSecondaryDamage());
+        System.out.println("You used " + getSecondaryName() + " The enemy took " + getSecondaryDamage());
     }
     public void characterHealth(){
         System.out.println("Your health is " + getHealth()); 
