@@ -12,12 +12,6 @@ package minigame;
 public class EnemyFactory {
     public Enemy makeEnemy(int newEnemyType){
         Enemy newEnemy = null;
-       /* if(newEnemyType.equals("S")){
-            return new SlimeEnemy();
-        }else
-        if(newEnemyType.equals("SK")){
-            return new SkeletonEnemy();
-        }else return null; */
        switch(newEnemyType){
            case 1:
                return new SlimeEnemy();
