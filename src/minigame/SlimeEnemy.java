@@ -12,6 +12,7 @@ package minigame;
 public class SlimeEnemy extends Enemy{
     public SlimeEnemy(){
         setName("Slime");
-        setDamage(5.0); 
+        setDamage(2.0); 
+        setHealth(6.0);
     }
 }

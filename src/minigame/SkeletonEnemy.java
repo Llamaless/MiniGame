@@ -12,6 +12,7 @@ package minigame;
 public class SkeletonEnemy extends Enemy{
     public SkeletonEnemy(){
         setName("Skeleton");
-        setDamage(10.0); 
+        setDamage(5.0); 
+        setHealth(14.0); 
     }
 }

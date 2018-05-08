@@ -59,17 +59,13 @@ public class Character {
     }
     
     public void primaryAttack(){
-        System.out.println("You used " + getPrimaryName());
-    }
-    public void enemyPrimaryDamage(){
-        System.out.println("The enemy took " + getPrimaryDamage());
-    }
-    
+        System.out.println("You used " + getPrimaryName() + " The enemy took " + getPrimaryDamage() + " damage");
+    } 
     public void secondaryAttack(){
-        System.out.println("You used " + getSecondaryName());
+        System.out.println("You used " + getSecondaryName() + "The enemy took " + getSecondaryDamage());
     }
-    public void enemySecondaryDamage(){
-        System.out.println("The enemy took " + getSecondaryDamage());
+    public void characterHealth(){
+        System.out.println("Your health is " + getHealth()); 
     }
     
 }

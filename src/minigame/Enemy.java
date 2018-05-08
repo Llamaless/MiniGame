@@ -34,7 +34,12 @@ public class Enemy {
         damage = newDamage; 
     }
     
-    
+    public double getHealth(){
+        return health;
+    }
+    public void setHealth(double newHealth){
+        health = newHealth; 
+    }
     
     public void followHero(){
         System.out.println(getName() + " is following you");
@@ -45,5 +50,8 @@ public class Enemy {
     public void enemyAttacks(){
         System.out.println(getName() + " attacks and does " + getDamage()
         + " damage to your character");
+    }
+    public void enemyHealth(){
+        System.out.println("Enemy health is " + getHealth());
     }
 }

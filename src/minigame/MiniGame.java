@@ -28,33 +28,34 @@ public class MiniGame {
             String charType = input.nextLine();
             character = charFactory.makeChar(charType); 
             if(character != null){
-                Random rand = new Random();
-                int randomNum = rand.nextInt((2 - 1) + 1) + 1;
-        
-                if(randomNum != 0){
-                    //String typeOfEnemy = input.nextLine();
-                    int typeOfEnemy = randomNum; 
-                    enemy = enemyFactory.makeEnemy(typeOfEnemy);
-                    if(enemy != null){
-                        doStuffEnemy(enemy);
-                    }else System.out.print("Please enter S or SK next time");
-                }
+                enemy = createEnemy(enemy, enemyFactory); 
             }else System.out.print("Please Enter a class next time"); 
         }
+        fightSetUp(character, enemy); 
         
-        double health = recieveHealth(character); 
-        while(health > 0){
-            double enemyDamage = enemyAttacks(enemy); 
-            double charDamage = characterAttacks(character);
-            health = health - enemyDamage; 
-            System.out.print("Your health is now " + health + "\n");
-        }System.out.print("You are now Dead.");
         //Enemy creation
         
+    }
+    
+    public static Enemy createEnemy(Enemy enemy, EnemyFactory enemyFactory){
+        Random rand = new Random();
+        int randomNum = rand.nextInt((2 - 1) + 1) + 1;
+        
+        if(randomNum != 0){
+            //String typeOfEnemy = input.nextLine();
+            int typeOfEnemy = randomNum; 
+            enemy = enemyFactory.makeEnemy(typeOfEnemy);
+            if(enemy != null){
+                doStuffEnemy(enemy);
+                return enemy;
+            }
+        }
+        return null; 
     }
     public static void doStuffEnemy(Enemy anEnemy){
         anEnemy.displayEnemy();
         anEnemy.followHero();
+        anEnemy.enemyHealth();
     }
     
     public static double enemyAttacks(Enemy anEnemy){
@@ -63,6 +64,23 @@ public class MiniGame {
         return attackDamage;
     }
     
+    public static double enemyHealth(Enemy anEnemy){
+        double health = anEnemy.getHealth();
+        return health; 
+    }
+    
+     public static double recieveHealth(Character character){
+        character.characterHealth();
+        double charHealth = character.getHealth(); 
+        return charHealth; 
+    }
+    
+    public static void fightSetUp(Character character, Enemy enemy){
+        double characterHealth = recieveHealth(character);
+        double enemyHealth = enemyHealth(enemy);
+        fight(characterHealth, enemyHealth, character, enemy); 
+    } 
+    
     public static double characterAttacks(Character character){
         Scanner input = new Scanner(System.in);
         System.out.print("Choose Attack (1 / 2) \n");
@@ -70,21 +88,58 @@ public class MiniGame {
         switch(attackType){
             case 1: 
                 character.primaryAttack();
-                character.enemyPrimaryDamage();
                 double damage = character.getPrimaryDamage();
                 return damage;
             case 2:
                character.secondaryAttack();
-               character.enemySecondaryDamage();
                double damage2 = character.getSecondaryDamage();
                return damage2;
         }
         return 0.0;  
     }
     
-    public static double recieveHealth(Character character){
-        double charHealth = character.getHealth(); 
-        return charHealth; 
+    public static int healthCheck(double cHealth, double eHealth){
+        if(cHealth <= 0.0){
+           System.out.print("You are dead");
+           System.out.print("Thank you for playing");
+           System.exit(0);
+        }else{
+            System.out.print("Your health is now " + cHealth + "\n");
+            if(eHealth <= 0.0){
+                System.out.print("You Have killed the enemy");
+                return 1;
+            }else{
+                System.out.print(eHealth + " You must keep fighting   \n");
+                return 0;
+            }
+        }
+        return 0;
     }
     
+    public static void fightAgain(Character character, Enemy enemy, EnemyFactory enemyFactory){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Do you want to fight again? (Y / N) \n");
+        String choice = input.nextLine();
+        if(choice.equals("Y")){
+            Enemy enemy1 = createEnemy(enemy, enemyFactory);
+            fightSetUp(character, enemy1);
+        }
+        if(choice.equals("N")){
+            System.out.print("Thank you for playing");
+            System.exit(0); 
+        }else System.out.print("Please eneter a valid choice next time");
+    }
+    
+    public static void fight(double characterHealth, double enemyHealth, Character character, Enemy enemy){
+        double eHealth = enemyHealth;
+        double cHealth = characterHealth;
+        int x = 0;
+        while(x == 0){
+            double enemyDamage = enemyAttacks(enemy); 
+            double charDamage = characterAttacks(character);
+            cHealth = cHealth - enemyDamage;  
+            eHealth = eHealth - charDamage; 
+            x = healthCheck(cHealth, eHealth); 
+        }
+    }
 }
