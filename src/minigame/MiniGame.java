@@ -106,7 +106,7 @@ public class MiniGame {
         }else{
             System.out.print("Your health is now " + cHealth + "\n");
             if(eHealth <= 0.0){
-                System.out.print("You Have killed the enemy");
+                System.out.print("You Have killed the enemy \n");
                 return 1;
             }else{
                 System.out.print(eHealth + " You must keep fighting   \n");
@@ -116,13 +116,15 @@ public class MiniGame {
         return 0;
     }
     
-    public static void fightAgain(Character character, Enemy enemy, EnemyFactory enemyFactory){
+    public static void fightAgain(Character character){
+        EnemyFactory enemyFactory = new EnemyFactory();
+        Enemy enemy = null; 
         Scanner input = new Scanner(System.in);
         System.out.print("Do you want to fight again? (Y / N) \n");
         String choice = input.nextLine();
         if(choice.equals("Y")){
-            Enemy enemy1 = createEnemy(enemy, enemyFactory);
-            fightSetUp(character, enemy1);
+            enemy = createEnemy(enemy, enemyFactory);
+            fightSetUp(character, enemy);
         }
         if(choice.equals("N")){
             System.out.print("Thank you for playing");
@@ -141,5 +143,6 @@ public class MiniGame {
             eHealth = eHealth - charDamage; 
             x = healthCheck(cHealth, eHealth); 
         }
+        fightAgain(character); 
     }
 }
